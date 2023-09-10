@@ -6,9 +6,9 @@ public class App {
         out.println("<----Running App---->");
 
         //Instances
-        Item item1 = new Item();
-        item1.name = "Mocha";
-        item1.price = 5.50;
+        Item item1 = new Item("Mocha", 5.50); //The other way to instantiate
+        // item1.name = "Mocha";
+        // item1.price = 5.50;
 
         Item item2 = new Item();
         item2.name = "Latte";
