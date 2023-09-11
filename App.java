@@ -6,56 +6,42 @@ public class App {
         out.println("<----Running App---->");
 
         //Instances
-        Item item1 = new Item("Mocha", 5.50); //The other way to instantiate
-        // item1.name = "Mocha";
-        // item1.price = 5.50;
-
-        Item item2 = new Item();
-        item2.name = "Latte";
-        item2.price = 5.25;
-
-        Item item3 = new Item();
-        item3.name = "Coffee";
-        item3.price = 4.75;
-
-        Item item4 = new Item();
-        item4.name = "White Mocha";
-        item4.price = 6.50;
-
+        Item item1 = new Item("Mocha", 5.50);
+        Item item2 = new Item("Latte", 5.25);
+        Item item3 = new Item("Coffee", 4.75);
+        Item item4 = new Item("White Mocha", 6.50);
+        //these will default customer name to guest
         Order order1 = new Order();
-        order1.name = "Brendan";
-        order1.total = item1.price;
-        order1.isReady = true;
-        order1.items.add(item1);
-
         Order order2 = new Order();
-        order2.name = "Tori";
-        order2.total = item2.price;
-        order2.isReady = false;
-        order2.items.add(item2);
-
-        Order order3 = new Order();
-        order3.name = "Charles";
-        order3.total = item3.price*2;
-        order3.isReady = true;
-        order3.items.add(item3);
-        order3.items.add(item3);
-
-        Order order4 = new Order();
-        order4.name = "Bella";
-        order4.total = item4.price*2;
-        order4.isReady = false;
-        order4.items.add(item4);
-        order4.items.add(item4);
-        order4.isReady = true; //can overwrite fields
-
+        // these will have names passed in
+        Order order3 = new Order("Brendan");
+        Order order4 = new Order("Tori");
+        Order order5 = new Order("Bingus");
 
         //Method Calls
-        out.println(item1.name + ": " + item1.price);
-        out.println(order1.total);
-        out.println(order1.items);
-        out.println(order4.total);
-        out.println(order4.items);
-        out.println(order4.isReady);
+        order1.addItem(item1);
+        order2.addItem(item2);
+        order2.addItem(item3);
+        order3.addItem(item1);
+        order3.addItem(item4);
+        order4.addItem(item4);
+        order5.addItem(item2);
+        order3.setIsReady(true);
+        order5.setIsReady(true);
+        order1.display();
+        order2.display();
+        order3.display();
+        order4.display();
+        order5.display();
+
+        //! display(); handles most of these calls below
+        // out.println(order1.getName());
+        // out.println(order3.getName());
+        // out.println(order1.getStatusMessage());
+        // out.println(order2.getStatusMessage());
+        // out.println(order3.getStatusMessage());
+        // out.println(order4.getStatusMessage());
+        // out.println(order5.getStatusMessage());
+        // out.println(order3.getOrderTotal());
     }
 }
